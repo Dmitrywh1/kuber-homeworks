@@ -20,6 +20,12 @@ spec:
         volumeMounts:
         - mountPath: /usr/share/nginx/html
           name: nginx-html-volume
+        env:
+        - name: HTTP_PORT
+          value: "8080"
+        ports:
+        - name: http-port
+          containerPort: 8080
       - name: nginx
         image: nginx:latest
         ports:
