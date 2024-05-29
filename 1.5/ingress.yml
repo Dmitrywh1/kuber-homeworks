@@ -5,6 +5,10 @@
      annotations:
        nginx.ingress.kubernetes.io/rewrite-target: /
    spec:
+     tls:
+       - hosts:
+         - thisisspartaa.leonid
+         secretName: thisissparta-certs
      rules:
        - host: thisisspartaa.leonid
          http:
