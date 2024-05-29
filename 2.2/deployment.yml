@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storage-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storage-deployment
+  template:
+    metadata:
+      labels:
+        app: storage-deployment
+        namespace: default
+    spec:
+      volumes:
+        - name: vol
+          persistentVolumeClaim:
+            claimName: pvc-vol
+      containers:
+      - name: multitool
+        image: wbitt/network-multitool
+        volumeMounts:
+          - name: vol
+            mountPath: /test
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do date >> /test/test.txt; sleep 5; done']
+        volumeMounts:
+          - name: vol
+            mountPath: /test
