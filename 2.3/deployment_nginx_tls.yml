@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-with-tls
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-with-tls
+  template:
+    metadata:
+      labels:
+        app: nginx-with-tls
+    spec:
+      containers:
+      - name: nginx
+        image: dockerhub.timeweb.cloud/nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: index-html
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
+      volumes:
+      - name: index-html
+        configMap:
+          name: nginx-index

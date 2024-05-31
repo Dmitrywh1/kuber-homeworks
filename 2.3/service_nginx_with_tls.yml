@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-tls
+spec:
+  selector:
+    app: nginx-with-tls
+  ports:
+    - name: nginx
+      protocol: TCP
+      port: 9001
+      targetPort: 80
