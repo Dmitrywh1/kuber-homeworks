@@ -1,0 +1,13 @@
+nginx:
+  deployment:
+    name: secondapp
+  image:
+    repository: nginx
+    tag: 1.26.1
+    container_port: 80
+  replicas: 1
+  service:
+    name: nginx-second-app
+    targetPort: 80
+    port: 9001
+  selector: nginx-second

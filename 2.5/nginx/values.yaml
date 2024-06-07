@@ -1,0 +1,11 @@
+nginx:
+  image:
+    repository: nginx
+    tag: 1.26
+    container_port: 80
+  replicas: 1
+  service:
+    name: nginx
+    targetPort: 80
+    port: 9001
+  selector: nginx

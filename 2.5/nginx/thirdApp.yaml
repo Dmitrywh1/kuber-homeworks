@@ -1,0 +1,13 @@
+nginx:
+  deployment:
+    name: thirdapp
+  image:
+    repository: nginx
+    tag: 1.27
+    container_port: 80
+  replicas: 1
+  service:
+    name: nginx-third-app
+    targetPort: 80
+    port: 9001
+  selector: nginx-third
