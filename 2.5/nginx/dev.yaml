@@ -1,0 +1,70 @@
+nginx:
+  image:
+    repository: nginx
+    tag: 1.26
+    container_port: 80
+  replicas: 1
+  service:
+    name: nginx
+    targetPort: 80
+    port: 9001
+  selector: nginx
+  secret:
+    create: false
+    crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIDXTCCAkWgAwIBAgIUVJqsp5s+cpAHp7lTYv8rfQe/hvkwDQYJKoZIhvcNAQEL
+      BQAwPjEdMBsGA1UEAwwUdGhpc2lzc3BhcnRhYS5sZW9uaWQxHTAbBgNVBAoMFHRo
+      aXNpc3NwYXJ0YWEubGVvbmlkMB4XDTI0MDUyMTE1MDYyOVoXDTI1MDUyMTE1MDYy
+      OVowPjEdMBsGA1UEAwwUdGhpc2lzc3BhcnRhYS5sZW9uaWQxHTAbBgNVBAoMFHRo
+      aXNpc3NwYXJ0YWEubGVvbmlkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+      AQEAu/z+kN4+ixgoMan20ifacgpf59rslFsG+lckymC+4lcizHLDG91kstNLKYTS
+      iFO21P5m8v9k/v2S2iVb90zR34sgnlGSIUEHoA1QLE8UGve39Wom8P6+uSmk+gTb
+      QQS9NpE4dqd62fYaUoatOwjko3pJBKWhYyDm4RHr9hGBblLAtUDQawGhg+OOYHFq
+      r2uvmByGR1cYsu3YW1BHozjxI5aIQRimJflLjY8l2dHRJRkjcSbnG/cigGm0VDJP
+      SIUba/bI8SJosI5lRjhptAub93yJY46++PQ6G37dCh7tu+qU5D/y41qlAyUY3O38
+      HXXrkZDZFm+D3vNNrlkOuUDQvQIDAQABo1MwUTAdBgNVHQ4EFgQUqP59yGvIqRs6
+      MkjOOwufGyE90KQwHwYDVR0jBBgwFoAUqP59yGvIqRs6MkjOOwufGyE90KQwDwYD
+      VR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEADmabuftvuGQTHPi0A4aj
+      /x/yOPPu4IX0NRXPrCslKYBVWjlcnDcV5SxEASl+lBzIHHLCMQJXe7Id6mAKfGSI
+      Qh3L5nkhKcco89TmFvaBztID8G9R1588uH4064eVnFYWCso/q95EM0BafPWO8+Nx
+      BBffsxwCrcIpgcl3z4lXKxwG7JMS/7h9qHJh6/7M+vgBWS3Bl3RBPoG8QAEEV1dW
+      YnQXx3lOx+YqCaFiWsJrWM1HzgopKW3TkpBMaPFwZ/7TSdpHKzzkVNFy844v/8fu
+      Y7lYMJICwTyBKmrG1c6KpAQQn3R6oBKTzDhTb2YEEDXUYsRzYIRw3FpD35jxKVhv
+      yg==
+      -----END CERTIFICATE-----
+    key: |
+      -----BEGIN PRIVATE KEY-----
+      MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC7/P6Q3j6LGCgx
+      qfbSJ9pyCl/n2uyUWwb6VyTKYL7iVyLMcsMb3WSy00sphNKIU7bU/mby/2T+/ZLa
+      JVv3TNHfiyCeUZIhQQegDVAsTxQa97f1aibw/r65KaT6BNtBBL02kTh2p3rZ9hpS
+      hq07COSjekkEpaFjIObhEev2EYFuUsC1QNBrAaGD445gcWqva6+YHIZHVxiy7dhb
+      UEejOPEjlohBGKYl+UuNjyXZ0dElGSNxJucb9yKAabRUMk9IhRtr9sjxImiwjmVG
+      OGm0C5v3fIljjr749Dobft0KHu276pTkP/LjWqUDJRjc7fwddeuRkNkWb4Pe802u
+      WQ65QNC9AgMBAAECggEAbaVNkY+fKR/o6ba5uK/4EIYOlDwzuwAw3LkRQ10UWQ37
+      xQW22TzTbB4je871wQAa5raPs3HVJYkfK0+ZCW/sBZevacgoFG9KlEbPmVhyYJxV
+      1rWYiv36niM1D4Lfo1exSO+A4GwlEpYhmjrlNUalnNhJWIWG0TuyjloWp8pkFMT9
+      NH+MNb+Z+MKm+NRZZaw/9nZasivIGOVwnqtaicSVbIw5qqKRxwRKWRHO7C8WdLgG
+      cogrtx/U9tEy9J6MG8wblVXwoFXaZ/qUco4S/+Im9CiAA1autG13mLjBrZLf7xE3
+      RoKapwTBhfTdIePFHtc1fRK+vmVOC3GHtgKdy9LY4QKBgQDo+2fOIntWqG6aIWav
+      +uf9K/fzUyWCXR+pBvLzpht+nmLpS5qs9tdFPP64Ru3fh0YDWdD13DAWwgjhY89B
+      wsyLLtjKJgotLPSXOQYNhzH7bda2cP8Vv5kj4zfSToa7pHoN3pxaVz8WmOZL2L/j
+      9BKBBnlC395buV9P+bsLTxwUZQKBgQDOj5p+HMDGLUWv56lbfba2PePUzcaCxKWf
+      jbguRPR3Sa+jVUl9z7DaZ9DVve0syZZteTKUXty5XSkm2yIlP4hxDAX1lu1TSJQd
+      uiJ76CEWUa0i3bpviKLOi5aRf4KlvS45FP1kBF99K/PCHW3Z/ombqJrmVl1sv23B
+      eV8pWespeQKBgQCdgalR8HnVwhTT2pTjkAraW6lLNQD8uxw2V15UXg3kcguIkPZG
+      zLIIOw4xYrJaFce9aDEepfdUy2TZi3KIkLtbtRYWw9TJacUJnyF6b9XYlw87U/T/
+      rQJJAsmwQipQHQfu7HpjkOwzyLaYvDYuU8lWtRuxnEtlU1MebESJhrgDCQKBgEPM
+      gNIaD/A8Vd5J9J2yIrGomMp1jE3Jy+8V7jlJqtAooHzE9q1T6WGWp8YwY9PKixR9
+      rmtiw6IYAPTfAlMlilxIrQASPO2UKgGj4cO3ynxv7JtAGfyX5ZBT4uT47GIIOU7F
+      I/KbONh1/7lcPX1K/dHYwpcOC/Yw0w6pDuIcwIJJAoGBAJ5j55BUXDyfsxuREJLi
+      N7y/RFrPTzW6pYctQCyvUMA8kI+rWuV1WDYK+k6OFUs7pru4rKFoQxHbvU35o9Yi
+      bN1aVimFSD/XK2U1853qKTmX6in0v0MJ+HrDzGJc/8I3lDURB6Paqpw1TntDFAtD
+      5R1UAA8SguKtA3zZntL1mgUb
+      -----END PRIVATE KEY-----
+  ingress:
+    includeTls: false
+    tls:
+      - hosts:
+          - 'thisisspartaa.leonid'
+        secretName: nginx
