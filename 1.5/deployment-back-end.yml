@@ -12,6 +12,8 @@ spec:
       labels:
         app: backend
     spec:
+      securityContext:
+        runAsNonRoot: true
       containers:
       - name: multitool
         image: wbitt/network-multitool
@@ -21,3 +23,7 @@ spec:
         ports:
         - name: http-port
           containerPort: 8080
+        securityContext:
+          runAsNonRoot: true
+          capabilities:
+            drop: ["CHOWN", "SETFCAP", "SETGID", "SETPCAP", "SETUID"]
